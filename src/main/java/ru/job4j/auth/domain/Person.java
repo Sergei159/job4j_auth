@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "tz_persons")
+@Table(name = "person")
 public class Person {
 
     @Id
@@ -12,6 +12,11 @@ public class Person {
     private int id;
     private String login;
     private String password;
+
+    @Column(name = "empl_id")
+    private int employeeId;
+
+
 
     public static Person of(String login, String password) {
         Person result = new Person();
@@ -42,6 +47,14 @@ public class Person {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
     }
 
     @Override
